@@ -1,6 +1,6 @@
 ---
 root: true                      # project-level eslintrc
-parser: babel-eslint            # default: esprima
+# parser: babel-eslint            # default: esprima
 
 extends:
   # https://www.npmjs.com/package/eslint-config-airbnb-base
@@ -51,12 +51,14 @@ rules:
       trailingComma: all
       singleQuote: true
       printWidth: 120
-      semi: true
+      semi: false
   func-names: [warn, as-needed]
-  no-console: off
-  no-shadow: off
-  consistent-return: off
+  no-console: 0
+  quotes: [error, single, { "allowTemplateLiterals": true, "avoidEscape": true }]
+  no-shadow: 0
+  consistent-return: 0
   no-const-assign: warn
+  no-plusplus: 0 
   no-this-before-super: warn
   no-undef: warn
   no-unreachable: warn
