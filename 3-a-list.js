@@ -43,3 +43,10 @@ const prepend = (val, list) => {
 }
 
 console.log(listToArray(prepend(0, (arrayToList([1,2,3]))))) // [0,1,2,3]
+
+// return nth value from list
+const nth = (list, index) => {
+  return listToArray(list)[index]
+}
+
+console.log(nth(arrayToList([1,2,3]), 1))
