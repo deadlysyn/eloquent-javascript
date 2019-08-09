@@ -49,4 +49,47 @@ const nth = (list, index) => {
   return listToArray(list)[index]
 }
 
-console.log(nth(arrayToList([1,2,3]), 1))
+console.log(nth(arrayToList([1,2,3]), 1)) // 2
+
+const nthRecursive = (list, index) => {
+  if (index === 0) return list.value
+  return nthRecursive(list.rest,index - 1)
+}
+
+console.log(nth(arrayToList([1,2,3]), 1)) // 2
+
+// deep comparison
+const deepEqual = (a, b) => {
+  if (a === null && b === null) return true
+  if (a === null || b === null) return false
+  if (typeof(a) === "object" && typeof(b) === "object") {
+    for (k of Object.keys(a)) {
+      if (a[k] !== b[k]) return false
+    }
+  return true
+  }
+  if (a !== b) return false
+  return true
+}
+
+console.log(deepEqual(1, 1)) // true
+console.log(deepEqual(1, 10)) // false
+console.log(deepEqual('abc', 'abc')) // true
+console.log(deepEqual('abc', 'def')) // false
+console.log(deepEqual(null, null)) // true
+
+let objA = {
+  a: 1,
+  b: 10
+}
+let objB = {
+  a: 1,
+  b: 10
+}
+let objC = {
+  a: 1,
+  b: 2
+}
+
+console.log(deepEqual(objA, objB)) // true
+console.log(deepEqual(objA, objC)) // false
